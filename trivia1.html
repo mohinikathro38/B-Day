@@ -59,8 +59,8 @@
 
         .media-container {
             margin: 20px 0;
-	    display: flex;
-   	    justify-content: center;
+	        display: flex;
+   	        justify-content: center;
             align-items: center;
     	    text-align: center;
         }
@@ -99,7 +99,7 @@
 
         <div class="buttons">
             <button id="nextButton" onclick="nextQuestion()">Next Question</button>
-            <button id="startTriviaButton" onclick="goToPage('Rahil1.html')">Start the Trivia</button>
+            <button id="startTriviaButton" onclick="goToPage('index.html')">Start the Trivia</button>
         </div>
     </div>
 
@@ -124,12 +124,12 @@
                 answer: 2, // Corrected to the actual index for this answer
                 friendVideo: "V1.mp4" // Video for this question
             },
-	    {
-		question: "Which creature pulls the carriages that take students to Hogwarts?",
-		options: ["Thestrals", "Hippogriffs", "Dragons", "Unicorns"],
-		answer: 0,
-		friendImage: "F3.jpg"
-	    }
+	        {
+		        question: "Which creature pulls the carriages that take students to Hogwarts?",
+		        options: ["Thestrals", "Hippogriffs", "Dragons", "Unicorns"],
+		        answer: 0,
+		        friendImage: "F3.jpg"
+	        }
         ];
 
         let currentQuestionIndex = 0;
@@ -190,7 +190,7 @@
                 nextQuestion();
             } else {
                 alert("Oops! Wrong answer. Going back to the start...");
-                goToPage('Rahil1.html');
+                goToPage('index.html');
             }
         }
 
@@ -201,7 +201,7 @@
                 displayQuestion();
             } else {
                 alert("You've completed the quiz! 🎉");
-                goToPage('Rahil1.html');
+                goToPage('index.html');
             }
         }
 
@@ -215,5 +215,3 @@
     </script>
 </body>
 </html>
-
-
