@@ -59,8 +59,8 @@
 
         .media-container {
             margin: 20px 0;
-	        display: flex;
-   	        justify-content: center;
+	    display: flex;
+   	    justify-content: center;
             align-items: center;
     	    text-align: center;
         }
@@ -99,4 +99,121 @@
 
         <div class="buttons">
             <button id="nextButton" onclick="nextQuestion()">Next Question</button>
-            <button id="startTriviaButton" onclick="goToPage('index.html')
+            <button id="startTriviaButton" onclick="goToPage('Rahil1.html')">Start the Trivia</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample questions and answers (You can expand this)
+        const questions = [
+            {
+                question: "Who is known as the Boy Who Lived?",
+                options: ["Harry Potter", "Ron Weasley", "Hermione Granger", "Draco Malfoy"],
+                answer: 0, // The index of the correct answer
+                friendImage: "F1.jpg" // Image for this question
+            },
+            {
+                question: "What is the name of Harry's owl?",
+                options: ["Hedwig", "Errol", "Scabbers", "Fawkes"],
+                answer: 0,
+                friendImage: "F2.jpg" // Image for this question
+            },
+            {
+                question: "Who was the Half-Blood Prince?",
+                options: ["Tom Riddle","Albus Dumbledore", "Severus Snape", "Harry Potter"],
+                answer: 2, // Corrected to the actual index for this answer
+                friendVideo: "V1.mp4" // Video for this question
+            },
+	    {
+		question: "Which creature pulls the carriages that take students to Hogwarts?",
+		options: ["Thestrals", "Hippogriffs", "Dragons", "Unicorns"],
+		answer: 0,
+		friendImage: "F3.jpg"
+	    }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+
+        // Function to display the current question and options
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById('questionText').textContent = question.question;
+
+            // Check if the current question has a video or image
+            if (question.friendVideo) {
+                // Show the video and hide the image
+                document.getElementById('friendImage').style.display = 'none';
+                document.getElementById('friendVideo').style.display = 'block';
+                document.getElementById('friendVideoSource').src = question.friendVideo;
+                document.getElementById('friendVideo').load(); // Reload the video
+            } else {
+                // Show the image and hide the video
+                document.getElementById('friendVideo').style.display = 'none';
+                document.getElementById('friendImage').style.display = 'block';
+                document.getElementById('friendImage').src = question.friendImage;
+            }
+
+            // Create an array of objects containing the options and their original indices
+            const options = question.options.map((option, index) => ({ text: option, originalIndex: index }));
+
+            // Shuffle the options
+            shuffleArray(options);
+
+            // Store the new index of the correct option after shuffling
+            const correctOptionShuffledIndex = options.findIndex(option => option.originalIndex === question.answer);
+
+            // Clear previous options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            // Dynamically generate buttons for the options
+            options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option.text;
+                button.onclick = function() { checkAnswer(index, correctOptionShuffledIndex); };
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        // Function to check the selected answer
+        function checkAnswer(selectedIndex, correctIndex) {
+            if (selectedIndex === correctIndex) {
+                alert("Correct! 🎉");
+                nextQuestion();
+            } else {
+                alert("Oops! Wrong answer. Going back to the start...");
+                goToPage('Rahil1.html');
+            }
+        }
+
+        // Function to go to the next question
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                alert("You've completed the quiz! 🎉");
+                goToPage('Rahil1.html');
+            }
+        }
+
+        // Function to redirect to a page
+        function goToPage(page) {
+            window.location.href = page;
+        }
+
+        // Initialize the first question
+        displayQuestion();
+    </script>
+</body>
+</html>
+
+
