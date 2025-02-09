@@ -1,12 +1,17 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter Birthday</title>
+    <title>Rahil Mehta Birthday</title>
     <style>
+        /* Import a Harry Potter-style font */
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
         body {
-            font-family: 'Harry Potter', sans-serif;
+            font-family: 'MedievalSharp', cursive;
             text-align: center;
             background-image: url('HG3.jpg');
             background-size: cover;
@@ -15,41 +20,29 @@
             background-attachment: fixed;
             color: gold;
             margin-top: 100px;
+            position: relative;
+        }
+
+        /* Add a parchment-style container */
+        .parchment-box {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 28px;
+            font-weight: bold;
+            color: gold;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid gold;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            text-transform: uppercase;
         }
 
         .container {
             position: relative;
             padding: 20px;
-        }
-
-        .question {
-            font-size: 28px;
-            margin-bottom: 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
             display: inline-block;
-            padding: 15px;
-            border-radius: 10px;
-        }
-
-        .buttons {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #startTriviaButton {
-            background-color: #8b0000;
-            color: white;
         }
 
         .image-container {
@@ -60,18 +53,46 @@
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            border: 3px solid gold;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 12px 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #8b0000;
+            color: white;
+            transition: 0.3s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        button:hover {
+            background-color: #b22222;
         }
     </style>
 </head>
 <body>
+    <div class="parchment-box">
+        Welcome to the Wizarding World! 🏰✨ <br>
+        You're officially invited to Hogwarts! 🎩
+    </div>
+
     <div class="container">
-        <div class="question">Welcome to the Wizarding World! 🏰✨</div>
-        <div class="question">You're officially invited to Hogwarts! 🎩</div>
         <div class="image-container">
-            <img src="Letter.jpg" alt="Magical Invitation">
+            <img src="harry-potter-invite.jpg" alt="Magical Invitation">
         </div>
         <div class="buttons">
-            <button id="startTriviaButton" onclick="goToPage('trivia1.html')">Start the Trivia</button>
+            <button onclick="goToPage('trivia1.html')">Start the Trivia</button>
         </div>
     </div>
 
