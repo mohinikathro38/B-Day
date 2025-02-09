@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Trivia</title>
+    <style>
+        body {
+            font-family: 'Harry Potter', sans-serif;
+            text-align: center;
+            background-image: url('UCOE1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: gold;
+            margin-top: 100px;
+        }
+
+        .container {
+            position: relative;
+            padding: 20px;
+        }
+
+        .question {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            display: inline-block;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #nextButton {
+            background-color: #008CBA;
+            color: white;
+        }
+
+        #startTriviaButton {
+            background-color: #8b0000;
+            color: white;
+        }
+
+        .media-container {
+            margin: 20px 0;
+	        display: flex;
+   	        justify-content: center;
+            align-items: center;
+    	    text-align: center;
+        }
+
+        img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        video {
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="questionContainer">
+            <div class="question" id="questionText">Question will appear here</div>
+            <!-- Friend's Image or Video -->
+            <div class="media-container">
+                <img id="friendImage" src="" alt="Friend's Image" style="display: none;">
+                <video id="friendVideo" width="320" height="240" controls style="display: none;">
+                    <source id="friendVideoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div id="optionsContainer">
+                <!-- Options will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="nextButton" onclick="nextQuestion()">Next Question</button>
+            <button id="startTriviaButton" onclick="goToPage('index.html')
